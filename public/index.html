@@ -52,5 +52,20 @@
       });
     }
   </script>
+
+<script>
+  const request = window.indexedDB.open("BudgetDb", 1);
+
+  request.onupgradeneeded = ({ target }) => {
+    const db = target.result;
+    const objectStore = db.createObjectStore("transactions");
+    objectStore.createIndex("pending", "pending");
+  };
+
+  request.onsuccess = event => {
+    console.log(request.result);
+  };
+</script>
+
 </body>
 </html>
