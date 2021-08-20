@@ -4,7 +4,7 @@ A budget Tracker application to allow for offline access and functionality. When
 ## Live Demo
 [Click to go to live URL](https://still-bayou-73273.herokuapp.com/)
 
-## App Image
+## App Image View
 <img src="./public/images/appView.png" alt="AppView" width="700"/>
 
 ## Table of Contents:
