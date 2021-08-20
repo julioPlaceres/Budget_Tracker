@@ -9,6 +9,7 @@
 
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="./manifest.webmanifest">
 
   <title>Budget Tracker</title>
 </head>
@@ -43,6 +44,9 @@
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
   <script src="index.js"></script>
+  <script src="db.js"></script>
+
+  <!-- Service Worker -->
   <script>
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
@@ -52,20 +56,5 @@
       });
     }
   </script>
-
-<script>
-  const request = window.indexedDB.open("BudgetDb", 1);
-
-  request.onupgradeneeded = ({ target }) => {
-    const db = target.result;
-    const objectStore = db.createObjectStore("transactions");
-    objectStore.createIndex("pending", "pending");
-  };
-
-  request.onsuccess = event => {
-    console.log(request.result);
-  };
-</script>
-
 </body>
 </html>
